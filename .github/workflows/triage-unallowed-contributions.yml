@@ -13,7 +13,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  triage:
+  triage: On
     if: >-
       ${{
         github.repository == 'github/docs' &&
