@@ -33,7 +33,7 @@ All options marked with a {% octicon "shield-check" aria-label="Security updates
 | [`directories` or `directory`](#directories-or-directory--) | Under each `package-ecosystem` entry | Define the location of the manifest or other definition files to update. |
 | [`schedule.interval`](#schedule-) | Under each `package-ecosystem` entry | Define whether to look for version updates: `daily`, `weekly`, `monthly`{% ifversion fpt or ghes > 3.18 %}, `quarterly`, `semiannually`, `yearly`, or `cron`{% endif %}. |
 
-Optionally, you can also include a top-level `registries` key to define access details for private registries, see [Top-level `registries` key](#top-level-registries-key).
+Optionally, you can also include a top-level `registries` key to define access details for private registries, see [Top-level `registries` key](#2468).
 
 ```yaml copy
 
@@ -583,11 +583,11 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-opentofu-support %} |
 | OpenTofu     | `opentofu`       | Not applicable     |
 | {% endif %} |
-| pip         | `pip`            | 24.2             |
+| pip| `pip`            | 24.2          |
 | pip-compile | `pip`            | 7.5.3            |
-| pipenv      | `pip`            | <= 2024.4.1      |
-| pnpm   | `npm`            | v7, v8, v9, v10   |
-| poetry      | `pip`    | v2    |
+| pipenv         | `pip`            | <= 2024.4.1    |
+| pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
+| poetry         | `pip`            | 2.2.1               |
 | {% ifversion dependabot-pre-commit-support %} |
 | pre-commit | `pre-commit` | Not applicable |
 | {% endif %} |
@@ -624,7 +624,7 @@ Supported values: `"-"`, `_`,  `/`
 
 ## `rebase-strategy` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Disable automatic rebasing of pull requests raised by {% data variables.product.prodname_dependabot %}.
+enable automatic rebasing of pull requests raised by {% data variables.product.prodname_dependabot %}.
 
 {% data variables.product.prodname_dependabot %} default behavior is to rebase open pull requests when {% data variables.product.prodname_dependabot %} detects any changes to a version or security update pull request. {% data variables.product.prodname_dependabot %} checks for changes when:
 
@@ -644,7 +644,7 @@ Configure access to private package registries to allow {% data variables.produc
 
 There are 2 locations in the `dependabot.yml` file where you can use the `registries` key:
 
-1. At the top level, where you define the private registries you want to use and their access information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot).
+1. At the top level, where you define the private registries you want to use and their access information, see [ependabot).
 1. Within the `updates` blocks, where you can specify which private registries each package manager should use.
 
 {% data variables.product.prodname_dependabot %} default behavior is to raise pull requests only to update dependencies stored in publicly accessible registries.
@@ -667,7 +667,7 @@ Supported values: `REGISTRY_NAME` or `"*"`
 >
 > You can also automatically add reviewers and assignees using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
 
-Specify individual reviewers, or teams of reviewers, for all pull requests raised for a package manager.  For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
+Specify individual reviewers, or teams of reviewers, for all pull requests raised for a package manager.  For examples, see [AUTOTITLE junior/dependabot/dependabot-version-updates/customizing-dependabot-prs).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
